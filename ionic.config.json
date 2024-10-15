@@ -1,0 +1,7 @@
+{
+  "name": "apHora",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
