@@ -1,27 +1,30 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content.background{
+  --background: url(/assets/images/fondo.jpeg) 0 0/100% 100% no-repeat;
+}
+.carta{
+  position: relative;
+  top: 22% ;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.cora {
+  width: 50%; /* Ajusta el ancho al 50% del contenedor */
+  height: auto; /* Mantiene la relación de aspecto */
+  position: relative;
+  left: 20%;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.Welcome{
+  left: 28%;
 }
 
-#container a {
-  text-decoration: none;
+.con1{
+  left: 22%;
+}
+.btn1{
+  position: relative;
+  left: 15%;
+}
+.btn2{
+  position: relative;
+  left: 21%;
 }
