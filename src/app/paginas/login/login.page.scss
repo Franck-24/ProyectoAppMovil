@@ -1,0 +1,48 @@
+ion-content.background{
+    --background: url(/../assets/images/fondo.jpeg) 0 0/100% 100% no-repeat;
+  }
+
+.contenedor{
+    position: relative;
+    top: 20%;
+    background: rgba(231, 104, 243, 0.658);
+   
+    
+}
+.titulo{
+    position: relative;
+    top: -30px;
+    border-radius: 22px;
+}
+
+.titulo2{
+    position: relative;
+    left: 120px;
+}
+.cont-usuario {
+   border-radius: 22px;
+   position: relative;
+   top: -10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+   transition: box-shadow 0.3s ease; /* Transición suave */
+   
+}
+.cont-contraseña{
+    border-radius: 22px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: box-shadow 0.3s ease; /* Transición suave */
+}
+
+.btn1{
+    position: relative;
+    top: 10px;
+}
+.link-registro{
+    position: relative;
+    top: 50px;
+}
+.registro{
+    position: relative;
+    left: 90px;
+    top: 70px;
+}
