@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+//import { AuthGuard } from './app/guards/auth.guard'; // Importa mi guard
+//import { DashboardComponent } from './das hboard/dashboard.component'; // Cambia según tu estructura
+//import { LoginComponent } from './login/login.component'; // Cambia según tu estructura
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
@@ -14,7 +18,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'recu-pass',
