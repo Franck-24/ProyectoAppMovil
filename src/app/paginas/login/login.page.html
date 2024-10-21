@@ -9,21 +9,24 @@
     <ion-toolbar class="titulo">
       <ion-title class="titulo2"><h1>Login</h1></ion-title>
     </ion-toolbar>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+
+    <form [formGroup]="formularioLogin">
+
+
       <ion-item class="cont-usuario">
         <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="text" name="username" required [(ngModel)]="username" class="contenedor1"></ion-input>
+        <ion-input type="text" formControlName="username" name="username"  class="contenedor1"></ion-input>
       </ion-item>
   
       <ion-item class="cont-contraseña">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" name="password" required [(ngModel)]="password"></ion-input>
+        <ion-input type="password" formControllerName="password" name="password" ></ion-input>
       </ion-item>
   
-      <ion-button class="btn1" expand="full" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
+      <ion-button class="btn1" expand="full" type="submit" (click)="ingresar()">Iniciar Sesión</ion-button>
+
     </form>
 
-    <div *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</div>
     <ion-button color="tertiary" class="registro" href="crear-usuario">No tengo cuenta</ion-button>    
   
   </div>
