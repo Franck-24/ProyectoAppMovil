@@ -1,0 +1,14 @@
+ion-button{
+    --background: #2082c3;
+    --color:#ffff;
+    font-size: small;
+  }
+
+  ion-button[disabled]{
+    background: #b4daf3;
+  }
+
+  ion-toolbar{
+    --background: #2082c3;
+    --color:#ffff;
+  }

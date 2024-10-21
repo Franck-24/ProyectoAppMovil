@@ -1,0 +1,39 @@
+{
+  "doctores": [
+    {
+      "id": "1",
+      "nombre": "Dr. Juan Pérez",
+      "especialidad": "Cardiología"
+    },
+    {
+      "id": "2",
+      "nombre": "Dra.  Ana Gómez",
+      "especialidad": "Pediatría"
+    },
+    {
+      "id": "7",
+      "nombre": "",
+      "especialidad": ""
+    },
+    {
+      "id": "6",
+      "nombre": "Dr. Rodriguez",
+      "especialidad": "Dermatología"
+    },
+    {
+      "id": "13",
+      "nombre": "Dra. Sánchez",
+      "especialidad": "Pediatría"
+    },
+    {
+      "id": "9",
+      "nombre": "Dr. Gomez ",
+      "especialidad": "Pediatría"
+    },
+    {
+      "id": "5",
+      "nombre": "Dr. Gomez ",
+      "especialidad": "Pediatría"
+    }
+  ]
+}

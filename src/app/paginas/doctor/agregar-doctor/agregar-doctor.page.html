@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref='/'></ion-back-button>
+  </ion-buttons>
+    <ion-title>Agregar Doctor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-subtitle position="absolute">Agrega doctor</ion-card-subtitle>
+    <form>
+      <ion-item lines="full">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" name="txNombre" [(ngModel)]="nuevoDoctor.nombre" required></ion-input>
+      </ion-item>
+
+       <ion-item lines="full">
+        <ion-label position="floating">Especialidad</ion-label>
+        <ion-input type="text" name="txEspecialidad" [(ngModel)]="nuevoDoctor.especialidad" required></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-button (click)="crearDoctor()">Agregar</ion-button>
+      </ion-item>
+
+    </form>
+  </ion-card>
+
+</ion-content>

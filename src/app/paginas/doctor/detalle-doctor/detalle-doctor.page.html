@@ -1,0 +1,21 @@
+ <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref='/'></ion-back-button>
+  </ion-buttons>
+    <ion-title>Detalle Doctor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> ID # {{doctor.id}}</ion-card-subtitle>
+      <ion-card-title>{{doctor.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <strong> Especialidad: {{doctor.especialidad}} </strong>
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>

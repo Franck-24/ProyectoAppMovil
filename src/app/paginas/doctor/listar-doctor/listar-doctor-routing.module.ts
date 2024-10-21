@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CrudCompletoPage } from './crud-completo.page';
+import { ListarDoctorPage } from './listar-doctor.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: CrudCompletoPage
+    component: ListarDoctorPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CrudCompletoPageRoutingModule {}
+export class ListarDoctorPageRoutingModule {}

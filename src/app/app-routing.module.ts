@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -8,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: ' ',
     pathMatch: 'full'
   },
   {
@@ -16,17 +17,37 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'crear-usuario',
-    loadChildren: () => import('./paginas/crear-usuario/crear-usuario.module').then( m => m.CrearUsuarioPageModule)
-  },
-  {
     path: 'recu-pass',
     loadChildren: () => import('./paginas/recu-pass/recu-pass.module').then( m => m.RecuPassPageModule)
   },
   {
-    path: 'crud-completo',
-    loadChildren: () => import('./paginas/crud-completo/crud-completo.module').then( m => m.CrudCompletoPageModule)
+    path: 'crear-cuenta',
+    loadChildren: () => import('./paginas/crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
   },
+  {
+    path: 'listar-doctor',
+    loadChildren: () => import('./paginas/doctor/listar-doctor/listar-doctor.module').then( m => m.ListarDoctorPageModule)
+  },
+  {
+    path: 'agregar-doctor',
+    loadChildren: () => import('./paginas/doctor/agregar-doctor/agregar-doctor.module').then( m => m.AgregarDoctorPageModule)
+  },
+
+  {
+    path: 'detalle-doctor/:id',
+    loadChildren: () => import('./paginas/doctor/detalle-doctor/detalle-doctor.module').then( m => m.DetalleDoctorPageModule)
+  },
+  {
+    path: 'eliminar-doctor',
+    loadChildren: () => import('./paginas/doctor/eliminar-doctor/eliminar-doctor.module').then( m => m.EliminarDoctorPageModule)
+  },
+  {
+    path: 'editar-doctor',
+    loadChildren: () => import('./paginas/doctor/editar-doctor/editar-doctor.module').then( m => m.EditarDoctorPageModule)
+  },
+
+
+
 ];
 
 @NgModule({

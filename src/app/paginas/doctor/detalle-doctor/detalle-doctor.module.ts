@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CrudCompletoPageRoutingModule } from './crud-completo-routing.module';
+import { DetalleDoctorPageRoutingModule } from './detalle-doctor-routing.module';
 
-import { CrudCompletoPage } from './crud-completo.page';
+import { DetalleDoctorPage } from './detalle-doctor.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrudCompletoPageRoutingModule
+    DetalleDoctorPageRoutingModule
   ],
-  declarations: [CrudCompletoPage]
+  declarations: [DetalleDoctorPage]
 })
-export class CrudCompletoPageModule {}
+export class DetalleDoctorPageModule {}
