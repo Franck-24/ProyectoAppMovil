@@ -13,7 +13,7 @@ import { EditarDoctorPage } from './editar-doctor.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CrearUsuarioPageRoutingModule
+    EditarDoctorPageRoutingModule
   ],
   declarations: [EditarDoctorPage]
 })
