@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
 import { Doctores } from 'src/app/interfaces/doctores';
+import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 
 
 
@@ -10,24 +11,41 @@ import { Doctores } from 'src/app/interfaces/doctores';
   templateUrl: './listar-doctor.page.html',
   styleUrls: ['./listar-doctor.page.scss'],
 })
-export class ListarDoctorPage implements OnInit{
+export class ListarDoctorPage{
 
   doctores: Doctores[] = [];
-  doctor: String='';
+  doctor: string='';
 
-  constructor(private doctoresServ: DoctorService) {
+  constructor(private doctoresServ: DoctorService,
+    private loadingCtrl: LoadingController
+  ) {
 
    }
 
-   ngOnInit() {
+  ionViewWillEnter() {
     this.loadDoctores(); // Carga los datos al iniciar el componente
   }
 
 
-  loadDoctores(): void {
+  async loadDoctores(event?: InfiniteScrollCustomEvent){
+    const loading = await this.loadingCtrl.create({
+      message: "cargando...",
+      spinner: "bubbles"
+    }
+  );
+  await loading.present();
     this.doctoresServ.listarDoctores().subscribe(
-      (data) => { this.doctores = data;   
-      })
+      (resp) => {
+        loading.dismiss();
+        let listString = JSON.stringify (resp)
+        this.doctores = JSON.parse (listString)
+        event?.target.complete();
+      },
+      (err) => {
+        console.log(err.message)
+        loading.dismiss();
+      }
+    )
   }
 
 

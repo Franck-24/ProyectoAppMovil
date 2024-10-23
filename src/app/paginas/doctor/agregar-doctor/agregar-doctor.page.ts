@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Doctor } from 'src/app/interfaces/doctor';
 import { DoctorService } from 'src/app/services/doctor.service';
@@ -8,7 +8,7 @@ import { DoctorService } from 'src/app/services/doctor.service';
   templateUrl: './agregar-doctor.page.html',
   styleUrls: ['./agregar-doctor.page.scss'],
 })
-export class AgregarDoctorPage implements OnInit {
+export class AgregarDoctorPage{
   nuevoDoctor: Doctor ={
     nombre:"",
     especialidad:""
@@ -16,10 +16,7 @@ export class AgregarDoctorPage implements OnInit {
 
   constructor(private doctorServ: DoctorService, private router: Router) { }
 
- 
 
-  ngOnInit() {
-  }
 
   crearDoctor(){
     this.doctorServ.crearDoctor(this.nuevoDoctor).subscribe();

@@ -1,9 +1,9 @@
 
 export interface Doctor {
-    id: Number;
-    nombre: String;
-    especialidad: String;
-    disponibilidad:{ fecha: String; disponible: Boolean }[];
+    id: 'number';
+    nombre: 'string';
+    especialidad: 'string';
+    disponibilidad:{ fecha: 'string'; disponible: 'boolean'}[];
   }
 
   

@@ -22,8 +22,14 @@ export class DoctorService {
     return this.http.post<Doctor>(`${environment.apiURL}/doctores`, nuevoDoctor)
   }
 
-  getDoctorByID(id: Number): Observable<Doctores>{
-    return this.http.get<Doctores>(`${environment.apiURL}/doctores/?id =${id}`)
+  getDoctorByID(id: Number):Observable<Doctores[]>{
+    return this.http.get<Doctores[]>(`${environment.apiURL}/doctores/?id=${id}`) //trae a los doctores por id
   }
+
+  editarDoctor(doctor: any):Observable<Doctores[]>{
+    return this.http.put<Doctores[]>(`${environment.apiURL}/doctores/${doctor.id}`, doctor)
+  }
+
+
 }
 

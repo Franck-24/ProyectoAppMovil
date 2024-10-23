@@ -16,6 +16,7 @@
     <ion-card-content>
       <strong> Especialidad: {{doctor.especialidad}} </strong>
     </ion-card-content>
-
+    <ion-button [routerLink] = "['/editar-doctor',doctor.id]">Modificar</ion-button>
+    <ion-button color ="danger">Eliminar</ion-button>
   </ion-card>
 </ion-content>

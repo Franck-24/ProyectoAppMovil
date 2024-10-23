@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-doctor',
   templateUrl: './detalle-doctor.page.html',
   styleUrls: ['./detalle-doctor.page.scss'],
 })
-export class DetalleDoctorPage implements OnInit {
+export class DetalleDoctorPage {
   doctor ={
     id: 0,
     nombre: "",
     especialidad: ""
   }
 
-  constructor(private doctorServ: DoctorService, private router: Router) { }
-
-  ngOnInit() {
+  constructor(private doctorServ: DoctorService, private router: Router, private route: ActivatedRoute) { }
+  
+  ionViewWillEnter() {
     this.getDoctorByID(this.getIdFromURL())
   }
 
@@ -26,8 +26,7 @@ export class DetalleDoctorPage implements OnInit {
     let id = parseInt(arr[2])
     return id
   }
-
-  getDoctorByID (doctorID: Number){
+  getDoctorByID (doctorID: number){
     this.doctorServ.getDoctorByID(doctorID).subscribe(
       (resp: any)=> {
         console.log('Respuesta recibida del servidor:', resp);

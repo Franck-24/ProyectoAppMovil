@@ -13,13 +13,11 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let dr of doctores; let indexArray = index" 
-    [routerLink]="['/detalle-doctor',dr.id]">
+    <ion-item *ngFor="let dr of doctores; let indexArray = index" [routerLink]="['/detalle-doctor',dr.id]">
       <ion-label> 
         <h2>{{ dr.nombre }}</h2>
         <p>Especialidad: {{ dr.especialidad }}</p>
       </ion-label>
-      <ion-button color="danger">Eliminar</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>

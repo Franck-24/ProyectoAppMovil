@@ -1,6 +1,6 @@
 export interface Doctores {
-    id: Number,
-    nombre: String,
-    especialidad: String,
+    id: number,
+    nombre: string,
+    especialidad: string,
           
 }

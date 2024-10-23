@@ -1,4 +1,4 @@
 export interface Doctor {
-    nombre: String,
-    especialidad: String,
+    nombre: string,
+    especialidad: string,
 }

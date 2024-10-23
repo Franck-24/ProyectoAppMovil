@@ -47,7 +47,7 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/doctor/eliminar-doctor/eliminar-doctor.module').then( m => m.EliminarDoctorPageModule)
   },
   {
-    path: 'editar-doctor',
+    path: 'editar-doctor/:id',
     loadChildren: () => import('./paginas/doctor/editar-doctor/editar-doctor.module').then( m => m.EditarDoctorPageModule)
   },
 
