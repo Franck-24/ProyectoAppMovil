@@ -8,9 +8,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">eliminar-doctor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> ID # {{doctor.id}}</ion-card-subtitle>
+      <ion-card-title>Realmente desea eliminar a {{doctor.nombre}} ?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+
+
+    <ion-button (click)="eliminarDoctor()" color="danger">Eliminar</ion-button>
+    
+  </ion-card>
 </ion-content>

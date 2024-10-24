@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DoctorService } from 'src/app/services/doctor.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-doctor',
@@ -14,7 +14,7 @@ export class DetalleDoctorPage {
     especialidad: ""
   }
 
-  constructor(private doctorServ: DoctorService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private doctorServ: DoctorService, private router: Router) { }
   
   ionViewWillEnter() {
     this.getDoctorByID(this.getIdFromURL())
