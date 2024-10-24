@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { CrudCompletoPage } from './crud-completo.page';
+import { EditarDoctorPage } from './editar-doctor.page';
 
-describe('CrudCompletoPage', () => {
-  let component: CrudCompletoPage;
-  let fixture: ComponentFixture<CrudCompletoPage>;
+describe('EditarDoctorPage', () => {
+  let component: EditarDoctorPage;
+  let fixture: ComponentFixture<EditarDoctorPage>;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrudCompletoPage);
+    fixture = TestBed.createComponent(EditarDoctorPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
