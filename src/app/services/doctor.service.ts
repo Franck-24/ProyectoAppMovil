@@ -30,6 +30,10 @@ export class DoctorService {
     return this.http.put<Doctores[]>(`${environment.apiURL}/doctores/${doctor.id}`, doctor)
   }
 
+  eliminarDoctor(doctor:any):Observable<Doctores[]>{
+    return this.http.delete<Doctores[]>(`${environment.apiURL}/doctores/${doctor.id}`)
+  }
+
 
 }
 
