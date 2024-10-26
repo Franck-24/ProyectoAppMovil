@@ -20,8 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule, 
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule
-  ,HttpClientModule],
+    AppRoutingModule],
   providers: [DoctorService, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
