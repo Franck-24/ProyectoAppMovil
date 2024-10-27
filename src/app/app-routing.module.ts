@@ -26,10 +26,6 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/recu-pass/recu-pass.module').then( m => m.RecuPassPageModule)
   },
   {
-    path: 'crear-cuenta',
-    loadChildren: () => import('./paginas/crear-cuenta/crear-cuenta.module').then( m => m.CrearCuentaPageModule)
-  },
-  {
     path: 'listar-doctor',
     loadChildren: () => import('./paginas/doctor/listar-doctor/listar-doctor.module').then( m => m.ListarDoctorPageModule)
   },
@@ -50,6 +46,15 @@ const routes: Routes = [
     path: 'editar-doctor/:id',
     loadChildren: () => import('./paginas/doctor/editar-doctor/editar-doctor.module').then( m => m.EditarDoctorPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./paginas/registro/registro.module').then( m => m.RegistroPageModule)
+  },  {
+    path: 'perfil',
+    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+
+
 
 
 

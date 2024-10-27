@@ -3,32 +3,29 @@
 </ion-header>
 
 <ion-content padding class="background">
-  
-  <div class="contenedor">
+  <ion-card class="transparent-card">
+  <ion-card-header>
+    <ion-card-title align="center">Login</ion-card-title>
+  </ion-card-header>
 
-    <ion-toolbar class="titulo">
-      <ion-title class="titulo2"><h1>Login</h1></ion-title>
-    </ion-toolbar>
-
+  <ion-card-content>
     <form [formGroup]="formularioLogin">
-
 
       <ion-item class="cont-usuario">
         <ion-label position="floating">Usuario</ion-label>
-        <ion-input type="text" formControlName="username" name="username"  class="contenedor1"></ion-input>
+        <ion-input type="text" formControlName="nombre" class="contenedor1"></ion-input>
       </ion-item>
-  
       <ion-item class="cont-contraseña">
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" formControllerName="password" name="password" ></ion-input>
+        <ion-input type="password" formControlName="contrasena"></ion-input>
       </ion-item>
   
-      <ion-button class="btn1" expand="full" type="submit" (click)="ingresar()">Iniciar Sesión</ion-button>
-
+      <ion-button class="btn1" expand="full" (click)="ingresar()">Iniciar Sesión</ion-button>
+      <br>
+      <a class="enlace" routerLink="/registro">No tengo cuenta</a>   
     </form>
-
-    <ion-button color="tertiary" class="registro" href="crear-usuario">No tengo cuenta</ion-button>    
+  </ion-card-content>
+  </ion-card>
+     
   
-  </div>
- 
 </ion-content>

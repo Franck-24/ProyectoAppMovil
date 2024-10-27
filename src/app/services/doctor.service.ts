@@ -19,15 +19,15 @@ export class DoctorService {
   }
 
   crearDoctor(nuevoDoctor: Doctor):Observable<Doctor>{
-    return this.http.post<Doctor>(`${environment.apiURL}/doctores`, nuevoDoctor)
+    return this.http.post<Doctor>(`${environment.apiURL}/doctores`,nuevoDoctor)
   }
 
-  getDoctorByID(id: Number):Observable<Doctores[]>{
+  getDoctorByID(id:number):Observable<Doctores[]>{
     return this.http.get<Doctores[]>(`${environment.apiURL}/doctores/?id=${id}`) //trae a los doctores por id
   }
 
   editarDoctor(doctor: any):Observable<Doctores[]>{
-    return this.http.put<Doctores[]>(`${environment.apiURL}/doctores/${doctor.id}`, doctor)
+    return this.http.put<Doctores[]>(`${environment.apiURL}/doctores/${doctor.id}`,doctor)
   }
 
   eliminarDoctor(doctor:any):Observable<Doctores[]>{

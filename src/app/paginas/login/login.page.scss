@@ -6,9 +6,14 @@ ion-content.background{
     position: relative;
     top: 20%;
     background: rgba(231, 104, 243, 0.658);
-   
-    
 }
+
+.transparent-card {
+    background: rgba(255, 255, 255, 0.4); /* Ajusta la transparencia */
+    backdrop-filter: blur(-30px); /* Opción para desenfocar el fondo */
+   
+  }
+
 .titulo{
     position: relative;
     top: -30px;
@@ -37,6 +42,14 @@ ion-content.background{
     position: relative;
     top: 10px;
 }
+.enlace {
+    text-decoration: none; /* Quita la línea del enlace */
+    display: block; /* Permite centrar con margin auto */
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Centra el enlace en su contenedor */
+    width: fit-content; /* Ajusta el ancho al contenido */
+}
+
 .link-registro{
     position: relative;
     top: 50px;

@@ -13,45 +13,50 @@ import { AlertController } from '@ionic/angular';
 export class LoginPage {
   formularioLogin: FormGroup;
 
-  constructor(public fb: FormBuilder,private alertController: AlertController){
+  constructor(public fb: FormBuilder,private alertController: AlertController, private router:Router){
+    
     this.formularioLogin = this.fb.group({
-      'username': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required),
-    })
-
-  
+      'nombre': new FormControl("",Validators.required),
+      'contrasena': new FormControl("",Validators.required),
+    });
   }
   ngOnInit(){
 
   }
-async ingresar() {
-    var f = this.formularioLogin.value; // Obtener los valores del formulario
-    var usuarioString = localStorage.getItem('usuario'); // Obtener el valor del localStorage
+  async ingresar() {
+    var f = this.formularioLogin.value; 
+    console.log('Valores del formulario:', f)
+    var usuarioString = localStorage.getItem('usuario'); 
 
-    // Manejar el caso donde usuarioString puede ser null
-    let username: any; // Declarar la variable para el usuario
+    let usuario: any; 
 
     if (usuarioString) {
-        username = JSON.parse(usuarioString); // Parsear solo si no es null
+      usuario = JSON.parse(usuarioString);
     } else {
-        username = null; // Asignar null si no existe
+      usuario = null; // Asignar null si no existe
     }
+    console.log('Usuario guardado:', usuario);
+    console.log('Usuario ingresado:', f.nombre, 'Contraseña ingresada:', f.contrasena);
 
-    // Comprobar si el usuario existe y si las credenciales son correctas
-    if (username && username.username === f.nombre && username.password === f.password) {
-        console.log('Ingresado'); // Credenciales correctas
-
+    if (usuario.nombre === f.nombre && usuario.contrasena === f.contrasena) {
+      console.log('Ingresado');
+      this.router.navigate(['/perfil'])
     } else {
-        // Si las credenciales son incorrectas o el usuario no existe
-        const alert = await this.alertController.create({
-            header: 'Datos incorrectos',
-            message: 'Completa todos los datos',
-            buttons: ['Aceptar']
-        });
-        
-        await alert.present(); // Mostrar la alerta
+      console.error('Error: Credenciales incorrectas. Intento de ingreso con:', f);
+      const alert = await this.alertController.create({
+        header: 'Datos incorrectos',
+        message: 'Completa todos los datos',
+        buttons: ['Aceptar']
+      }); 
+      await alert.present();
     }
+  }
+
+irARegistro(){
+  this.router.navigate(['/registro'])
 }
+
+
 
 
 }

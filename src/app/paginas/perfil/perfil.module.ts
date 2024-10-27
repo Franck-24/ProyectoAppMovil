@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CrearCuentaPageRoutingModule } from './crear-cuenta-routing.module';
+import { PerfilPageRoutingModule } from './perfil-routing.module';
 
-import { CrearCuentaPage } from './crear-cuenta.page';
+import { PerfilPage } from './perfil.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CrearCuentaPageRoutingModule
+    PerfilPageRoutingModule
   ],
-  declarations: [CrearCuentaPage]
+  declarations: [PerfilPage]
 })
-export class CrearCuentaPageModule {}
+export class PerfilPageModule {}

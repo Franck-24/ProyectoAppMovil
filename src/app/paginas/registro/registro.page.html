@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref='login'></ion-back-button>
+  </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card>
+    <ion-card-header>
+      <ion-card-title align="center">Registrate</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input formControlName="apellido"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email"></ion-input>
+        </ion-item>
+        <div *ngIf="registroForm.get('email')?.invalid && (registroForm.get('email')?.touched || registroForm.get('email')?.dirty)" style="color: red;">
+        <div *ngIf="registroForm.get('email')?.errors?.['required']">El email es obligatorio.</div>
+        <div *ngIf="registroForm.get('email')?.errors?.['email']">Por favor, ingresa un email válido.</div>
+        </div>
+        <ion-item>
+          <ion-label position="floating">Ingrese su contraseña</ion-label>
+          <ion-input type="password" formControlName="contrasena"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Repita su contraseña</ion-label>
+          <ion-input type="password" formControlName="repiteContrasena"></ion-input>
+        </ion-item>
+        <div *ngIf="registroForm.errors?.['passwordsMismatch'] && registroForm.get('repiteContrasena')?.touched" style="color: red;">
+          Las contraseñas no coinciden.
+        </div>
+        <br>
+        <ion-button expand="full" type="submit">Crear cuenta</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

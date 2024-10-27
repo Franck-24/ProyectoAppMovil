@@ -4,6 +4,10 @@ ion-content.background{
 .carta{
   position: relative;
   top: 22% ;
+  background: rgba(255, 255, 255, 0.5); /* Ajusta la transparencia */
+  backdrop-filter: blur(-30px); /* Opción para desenfocar el fondo */
+  border-radius: 10px; /* Opcional */
+  
 }
 
 .cora {
@@ -13,9 +17,6 @@ ion-content.background{
   left: 25%;
 }
 
-.Welcome{
-  left: 28%;
-}
 
 .con1{
   left: 22%;
@@ -27,4 +28,15 @@ ion-content.background{
 .btn2{
   position: relative;
   left: 21%;
+}
+
+ion-card-subtitle{
+color: black;
+font-size: medium;
+text-align: center;
+}
+
+ion-card-title{
+  font-size: xx-large;
+  text-align: center;
 }

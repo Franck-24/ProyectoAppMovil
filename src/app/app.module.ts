@@ -10,17 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { DoctorService } from './services/doctor.service';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent
   ],
-  imports: [
+  imports: [ 
     HttpClientModule, 
     ReactiveFormsModule, 
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule],
+    AppRoutingModule
+  ],
   providers: [DoctorService, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

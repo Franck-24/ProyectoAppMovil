@@ -9,9 +9,14 @@ import { DoctorService } from 'src/app/services/doctor.service';
   styleUrls: ['./agregar-doctor.page.scss'],
 })
 export class AgregarDoctorPage{
+  
+
   nuevoDoctor: Doctor ={
     nombre:"",
-    especialidad:""
+    especialidad:"",
+    disponibilidad: [
+      { fecha: " ", disponible: undefined }
+    ]
   }
 
   constructor(private doctorServ: DoctorService, private router: Router) { }

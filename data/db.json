@@ -1,74 +1,64 @@
 {
   "doctores": [
     {
-      "id": "1",
+      "id": 1,
       "nombre": "Dr. Juan Pérez",
-      "especialidad": "Cardiología"
+      "especialidad": "Cardiología",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     },
     {
-      "id": "7",
+      "id": 2,
       "nombre": "Dr. Padilla",
-      "especialidad": "Medicina General"
+      "especialidad": "Medicina General",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     },
     {
-      "id": "6",
+      "id": 3,
       "nombre": "Dr. Rodriguez",
-      "especialidad": "Dermatología"
+      "especialidad": "Dermatología",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     },
     {
-      "id": "13",
+      "id": 4,
       "nombre": "Dra. Sánchez",
-      "especialidad": "Pediatría"
+      "especialidad": "Pediatría",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     },
     {
-      "id": "b764",
-      "nombre": "hjhjhj",
-      "especialidad": "jkjkjk"
-    },
-    {
-      "id": "4037",
+      "id": 5,
       "nombre": "Dra. Gutierrez",
-      "especialidad": "Urología"
+      "especialidad": "Urología",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     },
     {
-      "id": "2c68",
-      "nombre": "qieyziduaa",
-      "especialidad": "sajiudiaueik"
-    },
-    {
-      "id": "a670",
-      "nombre": "akjdkjksdjk",
-      "especialidad": "dksjdkjdkd"
-    },
-    {
-      "id": "3d50",
-      "nombre": "ajksjakjsk",
-      "especialidad": "jkdjskdjksd"
-    },
-    {
-      "id": "af5b",
-      "nombre": "adjkajskajskajsk",
-      "especialidad": "sadjksjdkd"
-    },
-    {
-      "id": "9038",
-      "nombre": "jksdjskjkd",
-      "especialidad": "sdjkjdks"
-    },
-    {
-      "id": "8bd3",
-      "nombre": "djsdkahsjas",
-      "especialidad": "djsdkjsdka"
-    },
-    {
-      "id": "371f",
-      "nombre": "jhdsjhsjdjasj",
-      "especialidad": "jksdjdkjs"
-    },
-    {
-      "id": "7f93",
-      "nombre": "",
-      "especialidad": ""
+      "id": 6,
+      "nombre": "hjhj",
+      "especialidad": "hjhjh",
+      "disponibilidad": [
+        {
+          "fecha": " "
+        }
+      ]
     }
   ]
 }
