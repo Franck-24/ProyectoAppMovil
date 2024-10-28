@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router} from '@angular/router';
 import { DoctorService } from 'src/app/services/doctor.service';
 
+
 @Component({
   selector: 'app-eliminar-doctor',
   templateUrl: './eliminar-doctor.page.html',

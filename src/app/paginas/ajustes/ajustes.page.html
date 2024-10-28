@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>Administración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-list>
+  <ion-menu-toggle *ngFor="let option of adminOptions">
+    <ion-item [routerLink]="[option.url]">
+      <ion-icon slot="start" [name]="option.icono"></ion-icon>
+      <ion-label>{{ option.titulo }}</ion-label>
+    </ion-item>
+  </ion-menu-toggle>
+</ion-list>
+  
+</ion-content>

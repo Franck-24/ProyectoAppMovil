@@ -6,6 +6,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuarios } from 'src/app/interfaces/usuarios';
 
 
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.page.html',
@@ -18,7 +19,7 @@ export class RegistroPage {
     private router: Router,
     private loadingCtrl: LoadingController,
     private fb: FormBuilder,
-    private usuarioServ: UsuarioService
+    private usuarioServ: UsuarioService,
   ) {
     this.registroForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -54,11 +55,12 @@ export class RegistroPage {
     };
     this.usuarioServ.agregarUsuario(nvoUsuario);
     localStorage.setItem('usuario', JSON.stringify(nvoUsuario));
+    
 
     console.log('Formulario enviado correctamente:', nombre, apellido, email, contrasena);
     // Redirige al usuario después de un exitoso registro
     this.showLoading();
-    this.router.navigate(['/login']);
+    this.router.navigate(['/menu/login']);
 
     
   }

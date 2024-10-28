@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+ 
+<ion-content [fullscreen]="true">
+   <ion-card>
+  <ion-card-header>
+  <ng-container *ngIf="doctor">
+    <ion-card-title>{{ doctor.nombre }}</ion-card-title>
+    </ng-container>
+    <br>
+    <img src="/assets/images/medico.jpg" />
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-list>
+      <ion-item *ngFor="let horaObj of horas; let i = index">
+        <ion-button fill="clear" (click)="reservarHora(i)" 
+            [disabled]="!horaObj.disponible">      <!-- Deshabilitar si está reservada -->
+            {{ horaObj.hora }}</ion-button>
+        <ion-label [ngStyle]="{ 'color': horaObj.disponible ? 'gray' : 'lightgray' }">
+        {{ horaObj.disponible ? 'Disponible' : 'Reservada' }}</ion-label>
+      </ion-item>
+
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-content>

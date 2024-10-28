@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+ <ion-card>
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ nombreUsuario }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card (click)="toggleCita()">
+    <ion-card-header>
+      <ion-card-title>Próxima Cita</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="mostrarCita">
+      <ion-item>
+        <ion-label>
+          <h2>Fecha: {{ cita.fecha }}</h2>
+          <p>Hora: {{ cita.hora }}</p>
+          <p>Especialista: {{ cita.especialista }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header (click)="toggleExamen()">
+      <ion-card-title>Resultados de Exámenes</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="mostrarExamen">
+      <ion-item>
+        <ion-label>
+          <h2>Examen: {{ examen.tipo }}</h2>
+          <p>Resultado: {{ examen.resultado }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-footer>
+    <ion-button expand="full">Reservar Hora</ion-button>
+  </ion-footer>

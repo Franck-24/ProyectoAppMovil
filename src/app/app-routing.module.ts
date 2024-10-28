@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-//import { AuthGuard } from './app/guards/auth.guard'; // Importa mi guard
-//import { DashboardComponent } from './das hboard/dashboard.component'; // Cambia según tu estructura
-//import { LoginComponent } from './login/login.component'; // Cambia según tu estructura
-import { AuthGuard } from './guards/auth.guard';
+import { noIngresadoGuard } from './guards/no-ingresado.guard';
+import { ingresadoGuard } from './guards/ingresado.guard';
 
 
 const routes: Routes = [
@@ -17,10 +15,16 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'registro',
+    loadChildren: () => import('./paginas/registro/registro.module').then( m => m.RegistroPageModule),
+    canActivate: [noIngresadoGuard]
+  },
+  {
     path: 'login',
     loadChildren: () => import('./paginas/login/login.module').then( m => m.LoginPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [noIngresadoGuard]
   },
+ 
   {
     path: 'recu-pass',
     loadChildren: () => import('./paginas/recu-pass/recu-pass.module').then( m => m.RecuPassPageModule)
@@ -47,12 +51,11 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/doctor/editar-doctor/editar-doctor.module').then( m => m.EditarDoctorPageModule)
   },
   {
-    path: 'registro',
-    loadChildren: () => import('./paginas/registro/registro.module').then( m => m.RegistroPageModule)
-  },  {
-    path: 'perfil',
-    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
+    path: 'menu',
+    loadChildren: () => import('./paginas/menu/menu.module').then( m => m.MenuPageModule),
+    canActivate: [ingresadoGuard]
+  }
+  
 
 
 
