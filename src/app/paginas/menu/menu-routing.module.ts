@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 import { MenuPage } from './menu.page';
 
 const routes: Routes = [
   {
     path: '',
     component: MenuPage,
-    children:[{
-        path: 'inicio',
-        loadChildren: () => import('../inicio/inicio.module').then( m => m.InicioPageModule)
+    children:[
+    {
+      path: 'inicio',
+      loadChildren: () => import('../inicio/inicio.module').then( m => m.InicioPageModule)
     },
     {
       path: 'perfil',
@@ -26,6 +26,11 @@ const routes: Routes = [
     {
       path: 'ajustes',
       loadChildren: () => import('../ajustes/ajustes.module').then( m => m.AjustesPageModule)
+    },
+    {
+      path: '',
+      redirectTo: '/menu/inicio',  // Esta es la ruta predeterminada
+      pathMatch: 'full'
     }
   ]
   }

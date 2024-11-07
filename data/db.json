@@ -52,13 +52,13 @@
     },
     {
       "id": 6,
-      "nombre": "hjhj",
-      "especialidad": "hjhjh",
-      "disponibilidad": [
-        {
-          "fecha": " "
-        }
-      ]
+      "nombre": "Dra. Menlendez",
+      "especialidad": "Neurocirugía"
+    },
+    {
+      "id": 7,
+      "nombre": "Dr. Suarez",
+      "especialidad": "Pediatria"
     }
   ]
 }

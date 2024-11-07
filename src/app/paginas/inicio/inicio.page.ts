@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Storage } from '@capacitor/storage';
 
 @Component({
   selector: 'app-inicio',
@@ -7,10 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
+  nombreUsuario: string = 'Invitado';
  
 
   cita = {
-    fecha: '2023-10-30',
+    fecha: '30-10-2024',
     hora: '10:00 AM',
     especialista: 'Dr. Smith',
   };
@@ -21,23 +23,22 @@ export class InicioPage implements OnInit {
   };
   mostrarCita: boolean = false; 
   mostrarExamen: boolean = false;
-  nombreUsuario: string | null = '';
 
   constructor(private router: Router) { }
 
   ngOnInit() {
+    // Aquí accedemos a los datos pasados a través de state
     const navigation = this.router.getCurrentNavigation();
-
+    
     if (navigation?.extras?.state) {
+      // Accedemos al nombre que pasamos desde el Login
       this.nombreUsuario = navigation.extras.state['nombre'];
-      console.log('Nombre del usuario:', this.nombreUsuario); // revisar porque no me trae la información.
+      console.log('Nombre del usuario:', this.nombreUsuario); // Verifica si se muestra correctamente
     } else {
       console.log('No se encontró información de navegación.');
-      
-      this.nombreUsuario = 'Invitado';
     }
   }
-
+    
   toggleExamen() {
     this.mostrarExamen = !this.mostrarExamen;
   }
@@ -48,6 +49,7 @@ export class InicioPage implements OnInit {
 
 
   reservarHora() {
+    this.router.navigate(['/disponibilidad-horas']);
     console.log('Reservar hora');
   }
 

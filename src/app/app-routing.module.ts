@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { noIngresadoGuard } from './guards/no-ingresado.guard';
 import { ingresadoGuard } from './guards/ingresado.guard';
+import { HorasMedicasComponent } from './componentes/horas-medicas/horas-medicas.component';
 
 
 const routes: Routes = [
@@ -54,7 +55,14 @@ const routes: Routes = [
     path: 'menu',
     loadChildren: () => import('./paginas/menu/menu.module').then( m => m.MenuPageModule),
     canActivate: [ingresadoGuard]
-  }
+  },
+  {
+    path: 'disponibilidad-horas',
+    loadChildren: () => import('./paginas/disponibilidad-horas/disponibilidad-horas.module').then( m => m.DisponibilidadHorasPageModule)
+  },
+  { path: 'mi-ruta', component: HorasMedicasComponent },
+  { path: '', redirectTo: '/mi-ruta', pathMatch: 'full' },  
+
   
 
 

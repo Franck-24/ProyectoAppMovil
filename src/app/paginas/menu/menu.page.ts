@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Storage } from '@capacitor/storage';
 
 @Component({
   selector: 'app-menu',
@@ -51,26 +52,36 @@ export class MenuPage implements OnInit {
 
   async salir() {
     const alert = await this.alertCtrl.create({
-      header: 'salir',
+      header: 'Salir',
       message: '¿Estás seguro que quieres salir?',
-      buttons:[
+      buttons: [
         {
-        text: 'No estoy seguro',
-        handler:()  =>{
-        }
-        },{
-          text: 'Si',
-          handler:() => {
-            localStorage.removeItem('ingresado');
-            this.router.navigate(['/login']);
+          text: 'No estoy seguro',
+          handler: () => {
+            // No hace nada si el usuario no está seguro
+          }
+        },
+        {
+          text: 'Sí',
+          handler: () => {
+            // Llamamos a la función async que maneja el cierre de sesión
+            this.cerrarSesion();
           }
         }
       ]
     });
+  
     await alert.present();
-    // Implementa tu lógica de cierre de sesión o salida aquí
+  
     console.log('Usuario cerrando sesión.');
-    // Ejemplo: this.router.navigate(['/login']);
   }
-
+  
+  // Esta es una función async separada
+  async cerrarSesion() {
+    // Usamos await aquí dentro de una función async
+    await Storage.remove({ key: 'ingresado' });
+  
+    // Redirigimos al login
+    this.router.navigate(['/login']);
+  }
 }

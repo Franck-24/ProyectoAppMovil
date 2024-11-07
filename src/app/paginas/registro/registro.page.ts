@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Storage } from '@capacitor/storage';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuarios } from 'src/app/interfaces/usuarios';
 
@@ -37,7 +38,7 @@ export class RegistroPage {
     await loading.present();
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.registroForm.invalid) {
       alert("Por favor, completa todos los campos correctamente.");
       return;
@@ -53,14 +54,16 @@ export class RegistroPage {
       email,
       contrasena
     };
+
+    
     this.usuarioServ.agregarUsuario(nvoUsuario);
-    localStorage.setItem('usuario', JSON.stringify(nvoUsuario));
+    await Storage.set({ key: 'usuario', value: JSON.stringify(nvoUsuario) });
     
 
     console.log('Formulario enviado correctamente:', nombre, apellido, email, contrasena);
     // Redirige al usuario después de un exitoso registro
     this.showLoading();
-    this.router.navigate(['/menu/login']);
+    this.router.navigate(['/login']);
 
     
   }
