@@ -11,7 +11,15 @@
 <ion-content>
  <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienvenido, {{ nombreUsuario }}</ion-card-title>
+     <div class="profile-container">
+      <div *ngIf="usuario.imagen" class="image-container">
+        <img [src]="usuario.imagen" alt="Imagen de perfil" class="profile-image"/>
+      </div>
+
+        <div class="profile-info">
+          <ion-card-title>Bienvenido, {{ nombreUsuario }}</ion-card-title>
+        </div>
+      </div>
     </ion-card-header>
   </ion-card>
 

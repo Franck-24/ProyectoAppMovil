@@ -59,6 +59,28 @@
       "id": 7,
       "nombre": "Dr. Suarez",
       "especialidad": "Pediatria"
+    },
+    {
+      "id": 8,
+      "nombre": "Lfuentes",
+      "especialidad": "geriatra"
+    }
+  ],
+  "usuarios": [
+    {
+      "nombre": "Antonio",
+      "apellido": "Melendez",
+      "email": "antmelendez@prueba.com",
+      "contrasena": "123456",
+      "id": 1
+    },
+    {
+      "nombre": "lduca",
+      "apellido": "lduca",
+      "email": "lduca@duca.cl",
+      "sexo": "femenino",
+      "contrasena": "123456",
+      "id": 2
     }
   ]
 }

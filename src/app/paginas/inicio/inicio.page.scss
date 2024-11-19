@@ -12,3 +12,32 @@ ion-button{
     --background: #2082c3;
     --color:#ffff;
   }
+  
+  .image-container {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 25px; 
+  }
+  
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;  /* Hace la imagen circular */
+    object-fit: cover;  /* Asegura que la imagen cubra todo el espacio del contenedor sin distorsionarse */
+    border: 3px solid #ccc;  /* Borde opcional alrededor de la imagen */
+  }
+
+  .profile-container {
+    display: flex;                  /* Usamos flexbox para alinear la imagen con el texto */
+    align-items: center;            /* Centra verticalmente los elementos */
+    padding: 10px;                  /* Un poco de espaciado alrededor */
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;         /* Alinea el texto verticalmente */
+  }
+  

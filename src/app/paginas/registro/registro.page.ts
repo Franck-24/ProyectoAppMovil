@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@capacitor/storage';
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Usuarios } from 'src/app/interfaces/usuarios';
+import { Usuario } from 'src/app/interfaces/usuario';
+
 
 
 
@@ -26,6 +27,7 @@ export class RegistroPage {
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      sexo: ['', Validators.required],
       contrasena: ['', [Validators.required, Validators.minLength(6)]],
       repiteContrasena: ['', Validators.required],
     }, { validators: this.passwordsMatch});
@@ -43,24 +45,27 @@ export class RegistroPage {
       alert("Por favor, completa todos los campos correctamente.");
       return;
     }
-    const { nombre, apellido, email, contrasena } = this.registroForm.value;
+    const { nombre, apellido, email, sexo, contrasena, telefono, direccion, imagen } = this.registroForm.value;
     if (!this.validateEmail(email)) {
       alert("Por favor, ingresa un correo electrónico válido.");
       return;
     }
-    const nvoUsuario: Usuarios ={
+    const nvoUsuario: Usuario ={
       nombre,
       apellido,
       email,
-      contrasena
+      sexo,
+      contrasena,
+      telefono,
+      direccion,
+      imagen,
     };
 
-    
-    this.usuarioServ.agregarUsuario(nvoUsuario);
+    this.usuarioServ.crearUsuario(nvoUsuario).subscribe();
     await Storage.set({ key: 'usuario', value: JSON.stringify(nvoUsuario) });
     
 
-    console.log('Formulario enviado correctamente:', nombre, apellido, email, contrasena);
+    console.log('Formulario enviado correctamente:', nombre, apellido, email, sexo, contrasena, imagen);
     // Redirige al usuario después de un exitoso registro
     this.showLoading();
     this.router.navigate(['/login']);

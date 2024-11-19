@@ -32,6 +32,19 @@
         <div *ngIf="registroForm.get('email')?.errors?.['email']">Por favor, ingresa un email válido.</div>
         </div>
         <ion-item>
+      <ion-label>Sexo</ion-label>
+      <ion-radio-group formControlName="sexo">
+        <ion-item>
+          <ion-label>Masculino</ion-label>
+          <ion-radio value="masculino"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Femenino</ion-label>
+          <ion-radio value="femenino"></ion-radio>
+        </ion-item>
+        </ion-radio-group>
+    </ion-item>
+        <ion-item>
           <ion-label position="floating">Ingrese su contraseña</ion-label>
           <ion-input type="password" formControlName="contrasena"></ion-input>
         </ion-item>

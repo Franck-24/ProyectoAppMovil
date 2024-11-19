@@ -1,38 +1,49 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { Storage } from '@capacitor/storage'; // Importa Storage de Capacitor
 import { Usuarios } from '../interfaces/usuarios';
+import { Usuario } from '../interfaces/usuario';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioService {
   
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
- 
-  async agregarUsuario(usuario: Usuarios): Promise<void> {
-    await Storage.set({
-      key: 'usuario', 
-      value: JSON.stringify(usuario)
-    });
+  crearUsuario(nvoUsuario: Usuario):Observable<Usuario>{
+    return this.http.post<Usuario>(`${environment.apiURL}/usuarios`,nvoUsuario)
   }
 
-  // Función asincrónica para obtener el usuario del almacenamiento
-  async obtenerUsuario(): Promise<Usuarios | null> {
-    // Usamos 'await' para obtener el valor desde el almacenamiento
-    const { value } = await Storage.get({ key: 'usuario' });
-    if (value) {
-      // Si encontramos el valor, lo convertimos a objeto y lo retornamos
-      return JSON.parse(value);
-    }
-    // Si no se encuentra el valor, retornamos null
-    return null;
+  editarUsuario(usuario: any):Observable<Usuarios[]>{
+    return this.http.put<Usuarios[]>(`${environment.apiURL}/usuarios/${usuario.id}`,usuario)
   }
+
+  getUsuarioByID(id:number):Observable<Usuarios[]>{
+    return this.http.get<Usuarios[]>(`${environment.apiURL}/usuarios/?id=${id}`) //trae a los doctores por id
+  }
+
+    // Función asincrónica para obtener el usuario del almacenamiento
+ async obtenerUsuario(): Promise<Usuario | null> {
+  const { value } = await Storage.get({ key: 'usuario' });
+      if (value) {
+     return JSON.parse(value);
+   }
+  return null;
+  }
+
+
+
 
   // Función asincrónica para eliminar el usuario del almacenamiento
-  async eliminarUsuario(): Promise<void> {
+  //async eliminarUsuario(): Promise<void> {
     // Usamos 'await' para esperar que se elimine la clave 'usuario'
-    await Storage.remove({ key: 'usuario' });
-  }
+  //  await Storage.remove({ key: 'usuario' });
+  //}
 }
 
