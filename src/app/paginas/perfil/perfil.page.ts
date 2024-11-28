@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@capacitor/storage';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ImagenService } from 'src/app/services/imagen.service';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-perfil',
@@ -17,10 +20,13 @@ export class PerfilPage implements OnInit {
     imagen: ''
   };
 
-  constructor(private usuarioServ: UsuarioService) { }
+  constructor(private usuarioServ: UsuarioService,
+     private imagenServ: ImagenService,
+     private http: HttpClient ) { }
 
-  ngOnInit() {
+ async ngOnInit() {
     this.cargarDatosUsuario();
+    await this.obtenerImagen(); 
   }
 
    async cargarDatosUsuario() {
@@ -32,29 +38,39 @@ export class PerfilPage implements OnInit {
     }
   }
 
-  
 
     // Capturar la imagen seleccionada
     onFileSelected(event: any) {
       const file = event.target.files[0]; // Obtener el primer archivo seleccionado
-  
+    
       if (file) {
-        const reader = new FileReader();
-        
-        reader.onload = (e: any) => {
-          // Almacenar la imagen en la propiedad usuario.imagen
-          this.usuario.imagen = e.target.result; 
-          Storage.set({
-            key: 'usuario-imagen',
-            value: JSON.stringify(this.usuario.imagen)
-          }).then(() => {
-            console.log("Imagen guardada correctamente en Storage");
-          }); 
-        };
-        
-        reader.readAsDataURL(file);  // Lee el archivo y lo convierte a base64
+        // Llamar al servicio para subir la imagen
+        this.imagenServ.subirImagen(file).subscribe(
+          async (response) => {
+            // Suponiendo que la respuesta contiene la URL de la imagen subida
+            const imageUrl = response.imageUrl;
+            
+            try {
+              // Guardar la URL de la imagen en Capacitor Storage
+              await Storage.set({
+                key: 'usuario-imagen',
+                value: imageUrl // Solo almacenas la URL
+              });
+              this.usuario.imagen = imageUrl;
+
+              console.log('Imagen subida y URL guardada correctamente:', imageUrl);
+              await this.guardarImagenEnJSONServer(imageUrl);
+            } catch (error) {
+              console.error('Error al guardar la URL en Storage:', error);
+            }
+          },
+          (error) => {
+            console.error('Error al subir la imagen:', error);
+          }
+        );
       }
     }
+  
 
   async editarUsuario() {
     await Storage.set({
@@ -64,4 +80,32 @@ export class PerfilPage implements OnInit {
     // Puedes agregar aquí una notificación de éxito o similar
     console.log('Cambios guardados:', this.usuario);
   }
+
+  async obtenerImagen() {
+    try {
+      const { value } = await Storage.get({ key: 'usuario-imagen' });
+      if (value) {
+        this.usuario.imagen = value; // Asignamos la URL de la imagen a la propiedad `usuario.imagen`
+      }
+      console.log('URL de la imagen guardada:', value);
+    } catch (error) {
+      console.error('Error al obtener la URL de la imagen:', error);
+    }
+  }
+
+  async guardarImagenEnJSONServer(imageUrl: string) {
+    // Asumiendo que tienes una API REST en JSON Server que maneja el endpoint '/usuarios'
+    const usuarioData = {
+      ...this.usuario,  // Usamos los datos actuales del usuario
+      imagen: imageUrl   // Añadimos la URL de la imagen
+    };
+
+    try {
+      const response = await this.http.put(`${environment.apiURL}/usuarios/${this.usuario.id}`,usuarioData).toPromise;
+      console.log('Usuario actualizado en JSON Server:', response);
+    } catch (error) {
+      console.error('Error al guardar datos en JSON Server:', error);
+    }
+  }
+
 }

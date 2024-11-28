@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DoctorService } from './services/doctor.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ImagenService } from './services/imagen.service';
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(), 
     AppRoutingModule
   ],
-  providers: [DoctorService, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [DoctorService, ImagenService, UsuarioService, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
