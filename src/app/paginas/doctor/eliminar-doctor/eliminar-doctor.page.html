@@ -1,0 +1,23 @@
+ <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref='/'></ion-back-button>
+  </ion-buttons>
+    <ion-title>Eliminar Doctor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle> ID # {{doctor.id}}</ion-card-subtitle>
+      <ion-card-title>Realmente desea eliminar a {{doctor.nombre}} ?</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    </ion-card-content>
+
+
+    <ion-button (click)="eliminarDoctor()" color="danger">Eliminar</ion-button>
+    
+  </ion-card>
+</ion-content>

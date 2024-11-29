@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+    <ion-back-button defaultHref='/'></ion-back-button>
+  </ion-buttons>
+  <ion-buttons slot="end">
+    <ion-button [routerLink]="['/agregar-doctor']">agregar</ion-button>
+  </ion-buttons>
+    <ion-title> <ion-title>Lista de Doctores</ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let dr of doctores; let indexArray = index" [routerLink]="['/detalle-doctor',dr.id]">
+      <ion-label> 
+        <h2>{{ dr.nombre }}</h2>
+        <p>Especialidad: {{ dr.especialidad }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

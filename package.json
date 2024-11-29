@@ -28,9 +28,12 @@
     "@capacitor/haptics": "6.0.1",
     "@capacitor/keyboard": "6.0.2",
     "@capacitor/status-bar": "6.0.1",
+    "@ionic-native/sqlite": "^5.36.0",
     "@ionic/angular": "^8.0.0",
     "cordova-sqlite-storage": "^6.1.0",
     "ionicons": "^7.0.0",
+    "json-server": "^1.0.0-beta.3",
+    "moment": "^2.30.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"
@@ -63,5 +66,8 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.0"
   },
-  "description": "An Ionic project"
+  "description": "An Ionic project",
+  "main": "karma.conf.js",
+  "keywords": [],
+  "license": "ISC"
 }
