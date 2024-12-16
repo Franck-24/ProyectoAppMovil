@@ -81,6 +81,14 @@
       "sexo": "femenino",
       "contrasena": "123456",
       "id": 2
+    },
+    {
+      "nombre": "jose",
+      "apellido": "jose",
+      "email": "jose@jose.cl",
+      "sexo": "masculino",
+      "contrasena": "jose123",
+      "id": 3
     }
   ]
 }
