@@ -4,6 +4,8 @@ import { RouteReuseStrategy } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -12,18 +14,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { ImagenService } from './services/imagen.service';
 import { UsuarioService } from './services/usuario.service';
 
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [ 
     HttpClientModule, 
     ReactiveFormsModule, 
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule
+    AppRoutingModule,
+    AppComponent
   ],
-  providers: [DoctorService, ImagenService, UsuarioService, {provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    DoctorService, 
+    ImagenService, 
+    UsuarioService,
+    StatusBar,
+    SplashScreen,
+    {provide: RouteReuseStrategy, 
+      useClass: IonicRouteStrategy },
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
