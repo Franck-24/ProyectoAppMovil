@@ -5,6 +5,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Storage } from '@capacitor/storage';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from 'src/app/interfaces/usuario';
+import { Capacitor } from '@capacitor/core';
+import { CapacitorSQLite } from '@capacitor-community/sqlite'
+
 
 
 
