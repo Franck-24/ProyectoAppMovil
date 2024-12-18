@@ -7,12 +7,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-      maven {
-        url "https://plugins.gradle.org/m2/"
-      }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.2.2'
+        classpath 'com.android.tools.build:gradle:8.2.1'
     }
 }
 
@@ -39,12 +36,13 @@ android {
 repositories {
     google()
     mavenCentral()
-    mavenLocal()
+    flatDir{
+        dirs 'src/main/libs', 'libs'
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'src/main/libs', include: ['*.jar'])
-    //noinspection GradleDependency
     implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
     implementation "org.apache.cordova:framework:$cordovaAndroidVersion"
     // SUB-PROJECT DEPENDENCIES START
